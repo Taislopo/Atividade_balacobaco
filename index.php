@@ -63,7 +63,7 @@ function inversao($palavra){
     //strrev() funcao que Retorna a string invertida. 
  $palavraInvertida = strrev($palavra);
 
- echo"Essa palavra ivertida fica {$palavraInvertida}<br>";
+ echo"Essa palavra invertida fica {$palavraInvertida}<br>";
 }
 
 inversao("Tais");
@@ -108,7 +108,7 @@ function senha($palavra){
 
     $senha = str_shuffle($tamanho);
 
-    echo "Sua nova senha é {$senha}";
+    echo "Sua nova senha é {$senha}<br>";
 
 }
 senha('palavra');
@@ -136,87 +136,32 @@ function conversao($valor){
 }
 
 
-// 12. Função de conexão com banco
-// Crie uma função que retorne um objeto PDO conectado ao banco
 
-function conexao() {
+// 18. Crie uma função que verifique se uma letra é vogal ou consoante.
 
-$dsn = 'mysql:dbname=db_form;host=127.0.0.1';
-$usuario = "root";
-$senha = "";
+function cons_vogal($dado){
 
-  return new PDO($dsn, $usuario, $senha);
-
-}
-
-$conn = conexao();
-
-
-// 13. Função inserir usuário
-// Crie uma função que receba nome e email e insira na tabela usuarios.
-
-function inserir($nome,$email,$conexao2){
-
-
-    $scriptInserir = "INSERT INTO 
-    tb_form(
-        nome,
-        email
-    )
-    VALUES(
-        {$nome},
-        {$email}
-    )";
+    $array_palavra = str_split($dado);
     
-    $resultado_Inserir = $conexao2->prepare($scriptInserir);
-   
-}
-inserir('tais','tais@123',$conn);
+    $vogais = ['a', 'e', 'i', 'o', 'u'];
 
+  foreach ($array_palavra as $linha){
+    foreach($vogais as $linha2){
+     
+        if($linha == $linha2){
+            $vogal = str_split($linha);
+            echo "{$vogal} é Vogal<br>";
 
+        }      
+        else{
+            $consoante = str_split($linha);
+            echo "{$consoante} é Consoante<br>";
+            
+        }
+    }
+  }
 
-// 14.Função listar usuários
-// Crie uma função que recebe o nome de uma tabela e retorne todos os dados 
-// dela
-
-function listar($tabela_lista,$conexao2 ){
-
-
-    $script = "SELECT * FROM  {$tabela_lista}";
-
-    $resultado = $conexao2->query($script)->fetchAll();
-
-    echo '<pre>';
-    // var_dump($res);
-
+ 
 }
 
-listar('tb_sala',$conn);
-// 15. Função buscar usuário por ID
-// Crie uma função que receba um nome de tabela e um id e retorne os dados 
-// correspondente.
-
-function buscar($nome_tabela, $id = 2,$conexao2){
-
-     $scriptID = "SELECT * FROM {$nome_tabela} WHERE id = {$id}";    
-
-     $resultado_id = $conexao2->query($scriptID)->fetchAll();    
-}
-
-buscar('tb_sala','2',$conn);
-
-
-
-// 16. Função excluir usuário
-// Crie uma função que receba nome de tabela e um id e exclua o usuário do 
-// banco
-
-function excluir($nome_tabela,$id,$conexao2){
-
-   $scriptDeletar = "DELETE * FROM {$nome_tabela} WHERE id ={$id}";
-   
-   $resultado_Deletar = $conexao2->prepare($scriptDeletar);
-
-}
-
-excluir('tb_sala','3',$conn);
+cons_vogal('corno');
