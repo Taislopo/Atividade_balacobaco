@@ -77,19 +77,21 @@ aumento('fernanda', 2500);
 
 // 19. Crie uma função que receba um array de números e retorne um novo array contendo apenas os números pares.
 
-function array_pares()
+function array_pares($numeros)
 {
 
-   $numeros = [1, 2, 3, 4, 5, 6];
-   foreach ($numeros as $linha) {
-      if ($linha % 2 == 0) {
-         $pares = str_split($linha);
-         echo "O novo array com pares é {$linha}<br>";
+ $pares = [];
+
+   foreach ($numeros as $numero) {
+      if ($numero % 2 == 0) {
+         $pares[] = $numero; // adiciona ao array de pares
       }
    }
-}
 
-array_pares();
+   return $pares;
+}
+$numeros_array= [1, 2, 3, 4, 5, 6];
+array_pares($numeros_array);
 
 
 // 20. Crie uma função que receba um array de números e retorne o segundo maior número do array.
@@ -123,5 +125,9 @@ maior();
 
 // 22. Faça uma função que retorne o cubo de um número.
 
+function cubo($numero) {
+$cubo_numero = $numero ** 3; 
+  echo"o {$numero} ao cubo é {$cubo_numero}";
+}
 
 // 23. Faça uma função que retorne a raiz quadrada de um número.

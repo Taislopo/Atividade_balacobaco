@@ -118,50 +118,29 @@ senha('palavra');
 // Crie uma função que receba um número de 11 dígitos e retorne no formato:
 // 000.000.000-00.
 
-function formato($numero){
 
 
-
+function formato() {
+  
 }
+
+formato();
+
 
 
 // 11. Função de conversão
 // Crie uma função que receba um valor em real (R$) e faça a conversão para 
 // dólar (US$), usando um parâmetro para a cotação.
 
-function conversao($valor){
+function conversao($valorReais,$cotacaoDolar){
 
-
-
+      $valorDolar = $valorReais / $cotacaoDolar;
+      
+      echo"o valor convertido ficou {$valorDolar} dolares";
 }
+
+conversao(50,5);
 
 
 
 // 18. Crie uma função que verifique se uma letra é vogal ou consoante.
-
-function cons_vogal($dado){
-
-    $array_palavra = str_split($dado);
-    
-    $vogais = ['a', 'e', 'i', 'o', 'u'];
-
-  foreach ($array_palavra as $linha){
-    foreach($vogais as $linha2){
-     
-        if($linha == $linha2){
-            $vogal = str_split($linha);
-            echo "{$vogal} é Vogal<br>";
-
-        }      
-        else{
-            $consoante = str_split($linha);
-            echo "{$consoante} é Consoante<br>";
-            
-        }
-    }
-  }
-
- 
-}
-
-cons_vogal('corno');
