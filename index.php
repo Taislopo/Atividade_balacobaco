@@ -74,18 +74,18 @@ inversao("Tais");
 
 function vogais($palavra){
 
-
-    $array_palavra = str_split($palavra);
+    // str_split faz a string virar um array
+  $array_palavra = str_split($palavra);
     
-    $vogais = ['a', 'e', 'i', 'o', 'u'];
+  $vogais = ['a', 'e', 'i', 'o', 'u','A','E','I','O','U'];
     
-    $contador = 0;
+ $contador = 0;
 
   foreach ($array_palavra as $linha){
     foreach($vogais as $linha2){
      
         if($linha == $linha2){
-            $contador = $contador+ 1;
+            $contador = $contador + 1;
         }      
     }
   }
@@ -94,7 +94,7 @@ function vogais($palavra){
 
 }
 
-vogais('tais');
+vogais('Tais');
 
 // 9. Função geradora de senhas
 // Crie uma função que receba um número (tamanho da senha) e retorne uma 
@@ -102,16 +102,8 @@ vogais('tais');
 
 function senha($palavra){
     
-    $tamanho=strlen($palavra); 
-     
-    
-
-    $senha = str_shuffle($tamanho);
-
-    echo "Sua nova senha é {$senha}<br>";
-
 }
-senha('palavra');
+
 
 
 // 10. Função de formatar CPF
@@ -136,7 +128,7 @@ function conversao($valorReais,$cotacaoDolar){
 
       $valorDolar = $valorReais / $cotacaoDolar;
       
-      echo"o valor convertido ficou {$valorDolar} dolares";
+      echo"o valor convertido ficou {$valorDolar} dolares<br>";
 }
 
 conversao(50,5);
@@ -144,3 +136,31 @@ conversao(50,5);
 
 
 // 18. Crie uma função que verifique se uma letra é vogal ou consoante.
+
+function conso_vogal($letra){
+
+  // Definindo as vogais
+    $vogais = ['a', 'e', 'i', 'o', 'u',"A","E","I","O","U"];
+
+    // in_array função do PHP que verifica se um valor existe dentro de um array
+    if (in_array($letra, $vogais)) {
+        echo "A letra '{$letra}' é uma vogal.<br>";
+    } else {
+        echo "A letra '{$letra}' é uma consoante.<br>";
+    }
+
+}
+
+conso_vogal("C");
+
+
+
+
+function cotacao($real, $cot){
+
+    $dolar = $real / $cot;
+
+
+    echo "O valor em real convertido é {$dolar} dolares";
+
+}

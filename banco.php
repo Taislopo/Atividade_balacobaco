@@ -86,11 +86,11 @@ function excluir($nome_tabela,$id,$conexao2){
 
 
 
-   $scriptDeletar = "DELETE * FROM :tb_form WHERE id_form = :id_form";
+   $scriptDeletar = "DELETE FROM tb_form WHERE id_form = :id_form";
    
    $resultado_Deletar = $conexao2->prepare($scriptDeletar)->execute([
           ':id_form'=>$id,
-          ':tb_form'=>$nome_tabela
+          'tb_form'=>$nome_tabela
    ]);
 
 }

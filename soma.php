@@ -87,34 +87,33 @@ function array_pares($numeros)
          $pares[] = $numero; // adiciona ao array de pares
       }
    }
-
-   return $pares;
+//   print_r() mostra na tela os numeros do array
+    print_r($pares); 
 }
 $numeros_array= [1, 2, 3, 4, 5, 6];
 array_pares($numeros_array);
+echo"<br>";
 
 
 // 20. Crie uma função que receba um array de números e retorne o segundo maior número do array.
 
-function maior()
+function maior($array_numeros)
 {
-   $numeroSegundo=0;
-   $numeroMaior = 0;
-   $numeros = [1, 2, 3, 4, 5, 6];
+      // faz o array ficar em ordem descrencendo do maior valor para o menor valor
+      rsort($array_numeros);
+      $numeroMaior = $array_numeros[0];
+  
 
-   foreach($numeros as $linha){
-      if($linha>$numeroMaior){
-         $numeroMaior = $numeroMaior;
+   foreach($array_numeros as $segundo_Maior){
+      if($segundo_Maior<$numeroMaior){
+         echo"O segundo maior numero é: {$segundo_Maior} <br>";
+          return $segundo_Maior;
       }
-      else if($linha>$numeroSegundo && $numeroSegundo<$numeroMaior){
-         $numeroSegundo = $numeroSegundo;
-      }
+
    }
-
-   echo"O segundo maior numero da array é {$numeroSegundo}";
 }
-
-maior();
+$array_numeros = [2,6,7,8,9,10]; 
+maior($array_numeros);
 
 
 // 21. Crie uma função que receba um array de strings e retorne um novo array contendo apenas as strings que começam com uma vogal.
@@ -126,8 +125,21 @@ maior();
 // 22. Faça uma função que retorne o cubo de um número.
 
 function cubo($numero) {
+   // ** operador de exponenciação em PHP
 $cubo_numero = $numero ** 3; 
-  echo"o {$numero} ao cubo é {$cubo_numero}";
+  echo"o {$numero} ao cubo é {$cubo_numero}<br>";
 }
 
+cubo(3);
+
+
 // 23. Faça uma função que retorne a raiz quadrada de um número.
+
+function raiz($numero_raiz){
+
+   $resultado = sqrt($numero_raiz);
+
+   echo"A raiz quadrada de {$numero_raiz} é {$resultado}";
+
+}
+raiz(16);
